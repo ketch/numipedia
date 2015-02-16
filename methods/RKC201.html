@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="Your description goes here" />
+	<meta name="keywords" content="your,keywords,goes,here" />
+	<meta name="author" content="David I. Ketcheson" />
+	<link href='http://fonts.googleapis.com/css?family=Economica' rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" type="text/css" href="/freestyle.css" title="The Grid" media="all" />
+	<title>Runge-Kutta-Chebyshev (20,1)</title>
+
+        <script type="text/x-mathjax-config">
+                     MathJax.Hub.Config({
+                       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+                     });
+        </script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+
+<body class="light">
+<div id="layout">
+
+	<div id="header" class="row">
+		<div class="col c6">
+			<h1>Runge-Kutta-Chebyshev (20,1)</h1>
+			<p class="slogan">Explicit Runge-Kutta method</p>
+		</div>
+		
+		<div class="col c2">
+		</div>
+
+		<div class="col c2">
+		</div>
+
+		<div class="col c2">
+			<ul class="menu">
+				<li><a href="index.html">Numipedia</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col c4">
+			<img src="/methods/RKC201.png" alt="Absolute stability region" />
+		</div>
+		
+		<div class="col c8 alignjustify">
+			<h2>Coefficients</h2>
+                        \begin{align}
+  \begin{array}{c|cccccccccccccccccccc}
+ &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \\
+\frac{1}{400} & \frac{1}{400} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \\
+\frac{1}{100} & \frac{1}{200} & \frac{1}{200} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \\
+\frac{9}{400} & \frac{3}{400} & \frac{1}{100} & \frac{1}{200} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \\
+\frac{1}{25} & \frac{1}{100} & \frac{3}{200} & \frac{1}{100} & \frac{1}{200} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \\
+\frac{1}{16} & \frac{1}{80} & \frac{1}{50} & \frac{3}{200} & \frac{1}{100} & \frac{1}{200} &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \\
+\frac{9}{100} & \frac{3}{200} & \frac{1}{40} & \frac{1}{50} & \frac{3}{200} & \frac{1}{100} & \frac{1}{200} &  &  &  &  &  &  &  &  &  &  &  &  &  & \\
+\frac{49}{400} & \frac{7}{400} & \frac{3}{100} & \frac{1}{40} & \frac{1}{50} & \frac{3}{200} & \frac{1}{100} & \frac{1}{200} &  &  &  &  &  &  &  &  &  &  &  &  & \\
+\frac{4}{25} & \frac{1}{50} & \frac{7}{200} & \frac{3}{100} & \frac{1}{40} & \frac{1}{50} & \frac{3}{200} & \frac{1}{100} & \frac{1}{200} &  &  &  &  &  &  &  &  &  &  &  & \\
+\frac{81}{400} & \frac{9}{400} & \frac{1}{25} & \frac{7}{200} & \frac{3}{100} & \frac{1}{40} & \frac{1}{50} & \frac{3}{200} & \frac{1}{100} & \frac{1}{200} &  &  &  &  &  &  &  &  &  &  & \\
+\frac{1}{4} & \frac{1}{40} & \frac{9}{200} & \frac{1}{25} & \frac{7}{200} & \frac{3}{100} & \frac{1}{40} & \frac{1}{50} & \frac{3}{200} & \frac{1}{100} & \frac{1}{200} &  &  &  &  &  &  &  &  &  & \\
+\frac{121}{400} & \frac{11}{400} & \frac{1}{20} & \frac{9}{200} & \frac{1}{25} & \frac{7}{200} & \frac{3}{100} & \frac{1}{40} & \frac{1}{50} & \frac{3}{200} & \frac{1}{100} & \frac{1}{200} &  &  &  &  &  &  &  &  & \\
+\frac{9}{25} & \frac{3}{100} & \frac{11}{200} & \frac{1}{20} & \frac{9}{200} & \frac{1}{25} & \frac{7}{200} & \frac{3}{100} & \frac{1}{40} & \frac{1}{50} & \frac{3}{200} & \frac{1}{100} & \frac{1}{200} &  &  &  &  &  &  &  & \\
+\frac{169}{400} & \frac{13}{400} & \frac{3}{50} & \frac{11}{200} & \frac{1}{20} & \frac{9}{200} & \frac{1}{25} & \frac{7}{200} & \frac{3}{100} & \frac{1}{40} & \frac{1}{50} & \frac{3}{200} & \frac{1}{100} & \frac{1}{200} &  &  &  &  &  &  & \\
+\frac{49}{100} & \frac{7}{200} & \frac{13}{200} & \frac{3}{50} & \frac{11}{200} & \frac{1}{20} & \frac{9}{200} & \frac{1}{25} & \frac{7}{200} & \frac{3}{100} & \frac{1}{40} & \frac{1}{50} & \frac{3}{200} & \frac{1}{100} & \frac{1}{200} &  &  &  &  &  & \\
+\frac{9}{16} & \frac{3}{80} & \frac{7}{100} & \frac{13}{200} & \frac{3}{50} & \frac{11}{200} & \frac{1}{20} & \frac{9}{200} & \frac{1}{25} & \frac{7}{200} & \frac{3}{100} & \frac{1}{40} & \frac{1}{50} & \frac{3}{200} & \frac{1}{100} & \frac{1}{200} &  &  &  &  & \\
+\frac{16}{25} & \frac{1}{25} & \frac{3}{40} & \frac{7}{100} & \frac{13}{200} & \frac{3}{50} & \frac{11}{200} & \frac{1}{20} & \frac{9}{200} & \frac{1}{25} & \frac{7}{200} & \frac{3}{100} & \frac{1}{40} & \frac{1}{50} & \frac{3}{200} & \frac{1}{100} & \frac{1}{200} &  &  &  & \\
+\frac{289}{400} & \frac{17}{400} & \frac{2}{25} & \frac{3}{40} & \frac{7}{100} & \frac{13}{200} & \frac{3}{50} & \frac{11}{200} & \frac{1}{20} & \frac{9}{200} & \frac{1}{25} & \frac{7}{200} & \frac{3}{100} & \frac{1}{40} & \frac{1}{50} & \frac{3}{200} & \frac{1}{100} & \frac{1}{200} &  &  & \\
+\frac{81}{100} & \frac{9}{200} & \frac{17}{200} & \frac{2}{25} & \frac{3}{40} & \frac{7}{100} & \frac{13}{200} & \frac{3}{50} & \frac{11}{200} & \frac{1}{20} & \frac{9}{200} & \frac{1}{25} & \frac{7}{200} & \frac{3}{100} & \frac{1}{40} & \frac{1}{50} & \frac{3}{200} & \frac{1}{100} & \frac{1}{200} &  & \\
+\frac{361}{400} & \frac{19}{400} & \frac{9}{100} & \frac{17}{200} & \frac{2}{25} & \frac{3}{40} & \frac{7}{100} & \frac{13}{200} & \frac{3}{50} & \frac{11}{200} & \frac{1}{20} & \frac{9}{200} & \frac{1}{25} & \frac{7}{200} & \frac{3}{100} & \frac{1}{40} & \frac{1}{50} & \frac{3}{200} & \frac{1}{100} & \frac{1}{200} & \\
+\hline
+ & \frac{1}{20} & \frac{19}{200} & \frac{9}{100} & \frac{17}{200} & \frac{2}{25} & \frac{3}{40} & \frac{7}{100} & \frac{13}{200} & \frac{3}{50} & \frac{11}{200} & \frac{1}{20} & \frac{9}{200} & \frac{1}{25} & \frac{7}{200} & \frac{3}{100} & \frac{1}{40} & \frac{1}{50} & \frac{3}{200} & \frac{1}{100} & \frac{1}{200}
+\end{array}\end{align}
+			<h2>Properties</h2>
+			<ul>
+                            <li>Order of accuracy: $1$</li>
+                            <li>Stage order: $1$</li>
+                            <li>Stability function: $$1 + z + \frac{133 z^{2}}{800} + \frac{4389 z^{3}}{400000} + \frac{245157 z^{4}}{640000000} + \frac{81719 z^{5}}{10000000000} + \frac{7429 z^{6}}{64000000000} + \frac{7429 z^{7}}{6400000000000} + \frac{869193 z^{8}}{102400000000000000} + \frac{119301 z^{9}}{2560000000000000000} + \frac{2003001 z^{10}}{10240000000000000000000} + \frac{26013 z^{11}}{40960000000000000000000} + \frac{105183 z^{12}}{65536000000000000000000000} + \frac{8091 z^{13}}{2560000000000000000000000000} + \frac{9889 z^{14}}{2048000000000000000000000000000} + \frac{5797 z^{15}}{1024000000000000000000000000000000} + \frac{1309 z^{16}}{262144000000000000000000000000000000} + \frac{21 z^{17}}{6553600000000000000000000000000000000} + \frac{37 z^{18}}{26214400000000000000000000000000000000000} + \frac{z^{19}}{2621440000000000000000000000000000000000000} + \frac{z^{20}}{20971520000000000000000000000000000000000000000}$$</li>
+                            <li>Radius of absolute monotonicity: $1.233$</li>
+
+                        </ul>
+			<p class="alignright"><a href="#">Read more</a> &raquo;</p>
+		</div>
+	</div>
+	
+	<div class="row separator">
+	</div>
+	
+	<div class="row">
+		<div class="col c2">
+			<h3>Grid 1</h3>
+			<p>Lorem ipsum dolor sit amet...</p>
+		</div>
+
+		<div class="col c2">
+			<h3>Grid 2</h3>
+			<p>Consectetur adipisicing elit...</p>
+		</div>
+
+		<div class="col c2">
+			<h3>Grid 3</h3>
+			<p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
+		</div>
+		
+		<div class="col c6">
+			<h3>Grid 4</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		</div>
+	</div>
+
+
+	<div id="footer" class="row">
+		<div class="col c12">
+			<p>&copy; 2012 Your Name<br />
+			<a href="http://andreasviklund.com/templates/freestyle/">Template design</a> by <a href="http://andreasviklund.com/">Andreas Viklund</a></p>
+		</div>
+	</div>
+</div>
+</body>
+</html>
