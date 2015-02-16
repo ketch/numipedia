@@ -8,14 +8,28 @@
 
 <h1>Numerical integrators</h1>
 
-<ul>
-</ul>
-
 <form class="controls" id="Filters">
-  <!-- We can add an unlimited number of "filter groups" using the following format: -->
   
-  <p>  <input type="text" id="input" placeholder="Type here"></p>
+  <fieldset>
+      <h4>Search: </h4><input type="text" id="input" placeholder="search" >
+  </fieldset>
+
+  <button id="Reset">Clear Filters</button>
+
+  <br>
   
+
+  <fieldset>
+    <h4>Class</h4>
+    <div class="checkbox">
+      <input type="checkbox" value=".multistep"/>
+      <label>Linear multistep</label>
+    </div>
+    <div class="checkbox">
+      <input type="checkbox" value=".runge-kutta"/>
+      <label>Runge-Kutta</label>
+    </div>
+  </fieldset>
 
   <fieldset>
     <h4>Type</h4>
@@ -36,12 +50,8 @@
   <fieldset>
     <h4>Pairs</h4>
     <div class="checkbox">
-      <input type="checkbox" value=".not-pair"/>
-      <label>Single methods</label>
-    </div>
-    <div class="checkbox">
       <input type="checkbox" value=".pair"/>
-      <label>Embedded pairs</label>
+      <label>Embedded pairs only</label>
     </div>
   </fieldset>
 
@@ -80,8 +90,6 @@
       <label>6</label>
     </div>
   </fieldset>
-  
-  <button id="Reset">Clear Filters</button>
 </form>
 
 
