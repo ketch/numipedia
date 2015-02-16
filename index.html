@@ -1,0 +1,170 @@
+<html>
+<head>
+    <meta name="description" content="The Numerical Integrator Encyclopedia" />
+    <link rel="stylesheet" type="text/css" href="style.css" title="style" media="all" />
+</head>
+
+<body>
+
+<h1>Numerical integrators</h1>
+
+<ul>
+</ul>
+
+<div id="filters">
+
+  <p><input type="text" id="quicksearch" placeholder="Search" /></p>
+
+  <div class="ui-group">
+    <h3>Type</h3>
+    <div class="button-group js-radio-button-group" data-filter-group="imex">
+      <button class="button is-checked" data-filter="">any</button>
+      <button class="button" data-filter=".explicit">Explicit</button>
+      <button class="button" data-filter=".implicit">Implicit</button>
+      <button class="button" data-filter=".diagonally-implicit">Diagonally implicit</button>
+    </div>
+  </div>
+
+  <div class="ui-group">
+    <h3>Embedded pair</h3>
+    <div class="button-group js-radio-button-group" data-filter-group="Pair">
+      <button class="button is-checked" data-filter="">any</button>
+      <button class="button" data-filter=".pair">Yes</button>
+      <button class="button" data-filter=".not-pair">No</button>
+    </div>
+  </div>
+
+  <div class="ui-group">
+    <h3>Order</h3>
+    <div class="button-group js-radio-button-group" data-filter-group="order">
+      <button class="button is-checked" data-filter="">any</button>
+      <button class="button" data-filter=".order-1">1</button>
+      <button class="button" data-filter=".order-2">2</button>
+      <button class="button" data-filter=".order-3">3</button>
+      <button class="button" data-filter=".order-4">4</button>
+      <button class="button" data-filter=".order-5">5</button>
+      <button class="button" data-filter=".order-6">6</button>
+    </div>
+  </div>
+
+  <div class="ui-group">
+    <h3>SSP</h3>
+    <div class="button-group js-radio-button-group" data-filter-group="SSP">
+      <button class="button is-checked" data-filter="">any</button>
+      <button class="button" data-filter=".ssp">SSP</button>
+      <button class="button" data-filter=".not-ssp">not SSP</button>
+    </div>
+  </div>
+
+</div>
+
+<div id="sorts" class="button-group">
+    <button class="button is-checked" data-sort-value="original-order">original order</button>
+    <button class="button" data-sort-value="name">name</button>
+    <button class="button" data-sort-value="order">order</button>
+    <button class="button" data-sort-value="stages">stages</button>
+</div>
+
+
+<div class="isotope">
+
+    <a href="/methods/BE.html"><div class="method implicit diagonally-implicit ssp order-1 not-pair">
+    <h3 class="name">BE</h3>
+    </div></a>
+    <a href="/methods/SSPRK22.html"><div class="method explicit ssp order-2 not-pair">
+    <h3 class="name">SSPRK22</h3>
+    </div></a>
+    <a href="/methods/Lambert65.html"><div class="method explicit not-ssp order-2 not-pair">
+    <h3 class="name">Lambert65</h3>
+    </div></a>
+    <a href="/methods/Fehlberg45.html"><div class="method explicit not-ssp order-5 pair">
+    <h3 class="name">Fehlberg45</h3>
+    </div></a>
+    <a href="/methods/FE.html"><div class="method explicit ssp order-1 not-pair">
+    <h3 class="name">FE</h3>
+    </div></a>
+    <a href="/methods/Calvo 6(5) pair.html"><div class="method explicit not-ssp order-6 pair">
+    <h3 class="name">Calvo 6(5) pair</h3>
+    </div></a>
+    <a href="/methods/RadauIIA2.html"><div class="method implicit not-ssp order-3 not-pair">
+    <h3 class="name">RadauIIA2</h3>
+    </div></a>
+    <a href="/methods/Mid22.html"><div class="method explicit not-ssp order-2 not-pair">
+    <h3 class="name">Mid22</h3>
+    </div></a>
+    <a href="/methods/SSPRK85.html"><div class="method explicit not-ssp order-5 not-pair">
+    <h3 class="name">SSPRK85</h3>
+    </div></a>
+    <a href="/methods/NSSPRK32.html"><div class="method explicit not-ssp order-2 not-pair">
+    <h3 class="name">NSSPRK32</h3>
+    </div></a>
+    <a href="/methods/NSSPRK33.html"><div class="method explicit not-ssp order-3 not-pair">
+    <h3 class="name">NSSPRK33</h3>
+    </div></a>
+    <a href="/methods/SSPRK(10,4).html"><div class="method explicit ssp order-4 not-pair">
+    <h3 class="name">SSPRK(10,4)</h3>
+    </div></a>
+    <a href="/methods/RK44.html"><div class="method explicit not-ssp order-4 not-pair">
+    <h3 class="name">RK44</h3>
+    </div></a>
+    <a href="/methods/Prince-Dormand 8(7) Pair.html"><div class="method explicit not-ssp order-8 pair">
+    <h3 class="name">Prince-Dormand 8(7) Pair</h3>
+    </div></a>
+    <a href="/methods/SSP22star.html"><div class="method explicit ssp order-2 not-pair">
+    <h3 class="name">SSP22star</h3>
+    </div></a>
+    <a href="/methods/RadauIIA3.html"><div class="method implicit not-ssp order-5 not-pair">
+    <h3 class="name">RadauIIA3</h3>
+    </div></a>
+    <a href="/methods/MTE22.html"><div class="method explicit ssp order-2 not-pair">
+    <h3 class="name">MTE22</h3>
+    </div></a>
+    <a href="/methods/SSPRK75.html"><div class="method explicit not-ssp order-5 not-pair">
+    <h3 class="name">SSPRK75</h3>
+    </div></a>
+    <a href="/methods/BS5.html"><div class="method explicit not-ssp order-5 pair">
+    <h3 class="name">BS5</h3>
+    </div></a>
+    <a href="/methods/DP5.html"><div class="method explicit not-ssp order-5 pair">
+    <h3 class="name">DP5</h3>
+    </div></a>
+    <a href="/methods/Heun33.html"><div class="method explicit not-ssp order-3 not-pair">
+    <h3 class="name">Heun33</h3>
+    </div></a>
+    <a href="/methods/SSPRK33.html"><div class="method explicit ssp order-3 not-pair">
+    <h3 class="name">SSPRK33</h3>
+    </div></a>
+    <a href="/methods/SSPRK95.html"><div class="method explicit not-ssp order-5 not-pair">
+    <h3 class="name">SSPRK95</h3>
+    </div></a>
+    <a href="/methods/GL3.html"><div class="method implicit not-ssp order-6 not-pair">
+    <h3 class="name">GL3</h3>
+    </div></a>
+    <a href="/methods/BuRK65.html"><div class="method explicit not-ssp order-5 not-pair">
+    <h3 class="name">BuRK65</h3>
+    </div></a>
+    <a href="/methods/LobattoIIC3.html"><div class="method implicit not-ssp order-4 not-pair">
+    <h3 class="name">LobattoIIC3</h3>
+    </div></a>
+    <a href="/methods/LobattoIIIA2.html"><div class="method implicit diagonally-implicit ssp order-2 not-pair">
+    <h3 class="name">LobattoIIIA2</h3>
+    </div></a>
+    <a href="/methods/GL2.html"><div class="method implicit not-ssp order-4 not-pair">
+    <h3 class="name">GL2</h3>
+    </div></a>
+    <a href="/methods/LobattoIIIC4.html"><div class="method implicit not-ssp order-6 not-pair">
+    <h3 class="name">LobattoIIIC4</h3>
+    </div></a>
+    <a href="/methods/LobattoIIIC2.html"><div class="method implicit not-ssp order-2 not-pair">
+    <h3 class="name">LobattoIIIC2</h3>
+    </div></a>
+    <a href="/methods/Merson43.html"><div class="method explicit not-ssp order-4 pair">
+    <h3 class="name">Merson43</h3>
+    </div></a>
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="isotope.pkgd.min.js"></script>
+<script type="text/javascript" src="test.js"></script>
+</body>
+</html>

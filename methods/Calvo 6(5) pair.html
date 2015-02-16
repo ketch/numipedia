@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="Your description goes here" />
+	<meta name="keywords" content="your,keywords,goes,here" />
+	<meta name="author" content="David I. Ketcheson" />
+	<link href='http://fonts.googleapis.com/css?family=Economica' rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" type="text/css" href="/freestyle.css" title="The Grid" media="all" />
+	<title>Calvo 6(5)</title>
+
+        <script type="text/x-mathjax-config">
+                     MathJax.Hub.Config({
+                       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+                     });
+        </script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+
+<body class="light">
+<div id="layout">
+
+	<div id="header" class="row">
+		<div class="col c6">
+			<h1>Calvo 6(5)</h1>
+			<p class="slogan">Explicit embedded Runge-Kutta pair</p>
+		</div>
+		
+		<div class="col c2">
+		</div>
+
+		<div class="col c2">
+		</div>
+
+		<div class="col c2">
+			<ul class="menu">
+				<li><a href="index.html">Numipedia</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col c4">
+			<img src="/methods/Calvo 6(5) pair.png" alt="Absolute stability region" />
+		</div>
+		
+		<div class="col c8 alignjustify">
+			<h2>Coefficients</h2>
+                        \begin{align}
+  \begin{array}{c|ccccccccc}
+ &  &  &  &  &  &  &  &  & \\
+0.133 & 0.133 &  &  &  &  &  &  &  & \\
+0.200 & 0.050 & 0.150 &  &  &  &  &  &  & \\
+0.300 & 0.075 &  & 0.225 &  &  &  &  &  & \\
+0.560 & 0.441 & -1.143 & 0.695 & 0.567 &  &  &  &  & \\
+0.760 & -1.904 & 4.317 & 1.068 & -3.937 & 1.216 &  &  &  & \\
+0.987 & 4.831 & -7.633 & -7.401 & 13.165 & -2.682 & 0.707 &  &  & \\
+1.000 & 6.048 & -9.414 & -9.717 & 16.746 & -3.511 & 0.867 & -0.018 &  & \\
+1.000 & 0.061 &  & 0.285 & 0.044 & 0.305 & 0.164 & 0.516 & -0.376 & \\
+\hline
+ & \frac{17572349}{289262523} &  & \frac{57513011}{201864250} & \frac{15587306}{354501571} & \frac{71783021}{234982865} & \frac{29672000}{180480167} & \frac{65567621}{127060952} & - \frac{79074570}{210557597} & \\
+ & \frac{15231665}{510830334} &  & \frac{59452991}{116050448} & - \frac{28398517}{122437738} & \frac{56673824}{137010559} & \frac{68003849}{426673583} & \frac{7097631}{37564021} & - \frac{71226429}{583093742} & \frac{1}{20}
+\end{array}\end{align}
+			<h2>Properties</h2>
+			<ul>
+                            <li>Order of accuracy: $6$</li>
+                            <li>Stage order: $1$</li>
+                            <li>Stability function: $$1.0 + 1.0 z + 0.499999999999999 z^{2} + 0.166666666666666 z^{3} + 0.0416666666666667 z^{4} + 0.00833333333333333 z^{5} + 0.00138888888888889 z^{6} + 0.000219397640216706 z^{7} + 1.46573825264896 \cdot 10^{-5} z^{8}$$</li>
+                            <li>Radius of absolute monotonicity: $0$</li>
+
+                        </ul>
+			<p class="alignright"><a href="#">Read more</a> &raquo;</p>
+		</div>
+	</div>
+	
+	<div class="row separator">
+	</div>
+	
+	<div class="row">
+		<div class="col c2">
+			<h3>Grid 1</h3>
+			<p>Lorem ipsum dolor sit amet...</p>
+		</div>
+
+		<div class="col c2">
+			<h3>Grid 2</h3>
+			<p>Consectetur adipisicing elit...</p>
+		</div>
+
+		<div class="col c2">
+			<h3>Grid 3</h3>
+			<p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
+		</div>
+		
+		<div class="col c6">
+			<h3>Grid 4</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		</div>
+	</div>
+
+
+	<div id="footer" class="row">
+		<div class="col c12">
+			<p>&copy; 2012 Your Name<br />
+			<a href="http://andreasviklund.com/templates/freestyle/">Template design</a> by <a href="http://andreasviklund.com/">Andreas Viklund</a></p>
+		</div>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="Your description goes here" />
+	<meta name="keywords" content="your,keywords,goes,here" />
+	<meta name="author" content="David I. Ketcheson" />
+	<link href='http://fonts.googleapis.com/css?family=Economica' rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" type="text/css" href="/freestyle.css" title="The Grid" media="all" />
+	<title>SSP95</title>
+
+        <script type="text/x-mathjax-config">
+                     MathJax.Hub.Config({
+                       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+                     });
+        </script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+
+<body class="light">
+<div id="layout">
+
+	<div id="header" class="row">
+		<div class="col c6">
+			<h1>SSP95</h1>
+			<p class="slogan">From Ruuth-Spiteri paper</p>
+		</div>
+		
+		<div class="col c2">
+		</div>
+
+		<div class="col c2">
+		</div>
+
+		<div class="col c2">
+			<ul class="menu">
+				<li><a href="index.html">Numipedia</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col c4">
+			<img src="/methods/SSPRK95.png" alt="Absolute stability region" />
+		</div>
+		
+		<div class="col c8 alignjustify">
+			<h2>Coefficients</h2>
+                        \begin{align}
+  \begin{array}{c|ccccccccc}
+ &  &  &  &  &  &  &  &  & \\
+0.235 & 0.235 &  &  &  &  &  &  &  & \\
+0.286 & 0.111 & 0.175 &  &  &  &  &  &  & \\
+0.297 & 0.050 & 0.079 & 0.168 &  &  &  &  &  & \\
+0.612 & 0.144 & 0.227 & 0.241 &  &  &  &  &  & \\
+0.547 & 0.046 & 0.072 & 0.144 & 0.299 & -0.013 &  &  &  & \\
+0.760 & 0.059 & 0.093 & 0.109 & 0.227 & -0.010 & 0.282 &  &  & \\
+0.714 & 0.114 & 0.180 & 0.132 & 0.107 & -0.129 & 0.133 & 0.176 &  & \\
+0.915 & 0.096 & 0.152 & 0.112 & 0.091 & -0.109 & 0.112 & 0.148 & 0.313 & \\
+\hline
+ & 0.089 & 0.103 & 0.111 & 0.159 & -0.061 & 0.197 & 0.071 & 0.151 & 0.179
+\end{array}\end{align}
+			<h2>Properties</h2>
+			<ul>
+                            <li>Order of accuracy: $5$</li>
+                            <li>Stage order: $1$</li>
+                            <li>Stability function: $$1.0 + 1.0 z + 0.499999999999999 z^{2} + 0.166666666666667 z^{3} + 0.0416666666666667 z^{4} + 0.00833333333333334 z^{5} + 0.00127193989229133 z^{6} + 0.000124749929825894 z^{7} + 5.35100760529182 \cdot 10^{-6} z^{8}$$</li>
+                            <li>Radius of absolute monotonicity: $0$</li>
+
+                        </ul>
+			<p class="alignright"><a href="#">Read more</a> &raquo;</p>
+		</div>
+	</div>
+	
+	<div class="row separator">
+	</div>
+	
+	<div class="row">
+		<div class="col c2">
+			<h3>Grid 1</h3>
+			<p>Lorem ipsum dolor sit amet...</p>
+		</div>
+
+		<div class="col c2">
+			<h3>Grid 2</h3>
+			<p>Consectetur adipisicing elit...</p>
+		</div>
+
+		<div class="col c2">
+			<h3>Grid 3</h3>
+			<p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
+		</div>
+		
+		<div class="col c6">
+			<h3>Grid 4</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		</div>
+	</div>
+
+
+	<div id="footer" class="row">
+		<div class="col c12">
+			<p>&copy; 2012 Your Name<br />
+			<a href="http://andreasviklund.com/templates/freestyle/">Template design</a> by <a href="http://andreasviklund.com/">Andreas Viklund</a></p>
+		</div>
+	</div>
+</div>
+</body>
+</html>

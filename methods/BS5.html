@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="Your description goes here" />
+	<meta name="keywords" content="your,keywords,goes,here" />
+	<meta name="author" content="David I. Ketcheson" />
+	<link href='http://fonts.googleapis.com/css?family=Economica' rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" type="text/css" href="/freestyle.css" title="The Grid" media="all" />
+	<title>Bogacki-Shampine RK5(4)8</title>
+
+        <script type="text/x-mathjax-config">
+                     MathJax.Hub.Config({
+                       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+                     });
+        </script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+
+<body class="light">
+<div id="layout">
+
+	<div id="header" class="row">
+		<div class="col c6">
+			<h1>Bogacki-Shampine RK5(4)8</h1>
+			<p class="slogan">Explicit embedded Runge-Kutta pair</p>
+		</div>
+		
+		<div class="col c2">
+		</div>
+
+		<div class="col c2">
+		</div>
+
+		<div class="col c2">
+			<ul class="menu">
+				<li><a href="index.html">Numipedia</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col c4">
+			<img src="/methods/BS5.png" alt="Absolute stability region" />
+		</div>
+		
+		<div class="col c8 alignjustify">
+			<h2>Coefficients</h2>
+                        \begin{align}
+  \begin{array}{c|cccccccc}
+ &  &  &  &  &  &  &  & \\
+\frac{1}{6} & \frac{1}{6} &  &  &  &  &  &  & \\
+\frac{2}{9} & \frac{2}{27} & \frac{4}{27} &  &  &  &  &  & \\
+\frac{3}{7} & \frac{183}{1372} & - \frac{162}{343} & \frac{1053}{1372} &  &  &  &  & \\
+\frac{2}{3} & \frac{68}{297} & - \frac{4}{11} & \frac{42}{143} & \frac{1960}{3861} &  &  &  & \\
+\frac{3}{4} & \frac{597}{22528} & \frac{81}{352} & \frac{63099}{585728} & \frac{58653}{366080} & \frac{4617}{20480} &  &  & \\
+1 & \frac{174197}{959244} & - \frac{30942}{79937} & \frac{8152137}{19744439} & \frac{666106}{1039181} & - \frac{29421}{29068} & \frac{482048}{414219} &  & \\
+1 & \frac{587}{8064} &  & \frac{4440339}{15491840} & \frac{24353}{124800} & \frac{387}{44800} & \frac{2152}{5985} & \frac{7267}{94080} & \\
+\hline
+ & \frac{587}{8064} &  & \frac{4440339}{15491840} & \frac{24353}{124800} & \frac{387}{44800} & \frac{2152}{5985} & \frac{7267}{94080} & \\
+ & \frac{2479}{34992} &  & \frac{123}{416} & \frac{612941}{3411720} & \frac{43}{1440} & \frac{2272}{6561} & \frac{79937}{1113912} & \frac{3293}{556956}
+\end{array}\end{align}
+			<h2>Properties</h2>
+			<ul>
+                            <li>Order of accuracy: $5$</li>
+                            <li>Stage order: $1$</li>
+                            <li>Stability function: $$1 + z + \frac{z^{2}}{2} + \frac{z^{3}}{6} + \frac{z^{4}}{24} + \frac{z^{5}}{120} + \frac{17291 z^{6}}{12418560} + \frac{269 z^{7}}{1379840}$$</li>
+                            <li>Radius of absolute monotonicity: $0$</li>
+
+                        </ul>
+			<p class="alignright"><a href="#">Read more</a> &raquo;</p>
+		</div>
+	</div>
+	
+	<div class="row separator">
+	</div>
+	
+	<div class="row">
+		<div class="col c2">
+			<h3>Grid 1</h3>
+			<p>Lorem ipsum dolor sit amet...</p>
+		</div>
+
+		<div class="col c2">
+			<h3>Grid 2</h3>
+			<p>Consectetur adipisicing elit...</p>
+		</div>
+
+		<div class="col c2">
+			<h3>Grid 3</h3>
+			<p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
+		</div>
+		
+		<div class="col c6">
+			<h3>Grid 4</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		</div>
+	</div>
+
+
+	<div id="footer" class="row">
+		<div class="col c12">
+			<p>&copy; 2012 Your Name<br />
+			<a href="http://andreasviklund.com/templates/freestyle/">Template design</a> by <a href="http://andreasviklund.com/">Andreas Viklund</a></p>
+		</div>
+	</div>
+</div>
+</body>
+</html>
