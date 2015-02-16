@@ -79,9 +79,11 @@ def write_index_page(methods,fname='index.html',template_file='index_template.ht
     from mako.template import Template
     mytemplate = Template(filename = template_file)
 
-    class_str = {}
+    method_props = {}
     for method_name, method in methods.iteritems():
-        properties = ["method"]
+        method_props[method.shortname] = {}
+        methdict = method_props[method.shortname]
+        properties = ["mix"]
 
         if method.is_explicit(): properties.append("explicit")
         else: properties.append("implicit")
@@ -99,10 +101,10 @@ def write_index_page(methods,fname='index.html',template_file='index_template.ht
         else:
             properties.append("not-pair")
 
-        class_str[method.shortname] = " ".join(properties)
+        methdict['class string'] = " ".join(properties)
+        methdict['name'] = method.name
 
-    s = mytemplate.render(methods=methods,
-                          class_str=class_str)
+    s = mytemplate.render(method_props=method_props)
     with open(fname,'w') as outfile:
         outfile.write(s)
 
