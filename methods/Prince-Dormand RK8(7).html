@@ -7,7 +7,7 @@
 	<meta name="author" content="David I. Ketcheson" />
 	<link href='http://fonts.googleapis.com/css?family=Economica' rel='stylesheet' type='text/css' />
 	<link rel="stylesheet" type="text/css" href="/freestyle.css" title="The Grid" media="all" />
-	<title>SSP 95</title>
+	<title>Prince-Dormand 8(7)</title>
 
         <script type="text/x-mathjax-config">
                      MathJax.Hub.Config({
@@ -22,8 +22,8 @@
 
 	<div id="header" class="row">
 		<div class="col c6">
-			<h1>SSP 95</h1>
-			<p class="slogan">From Ruuth-Spiteri paper</p>
+			<h1>Prince-Dormand 8(7)</h1>
+			<p class="slogan">Explicit embedded Runge-Kutta pair</p>
 		</div>
 		
 		<div class="col c2">
@@ -41,30 +41,35 @@
 	
 	<div class="row">
 		<div class="col c4">
-			<img src="/methods/SSPRK95.png" alt="Absolute stability region" />
+			<img src="/methods/Prince-Dormand RK8(7).png" alt="Absolute stability region" />
 		</div>
 		
 		<div class="col c8 alignjustify">
 			<h2>Coefficients</h2>
                         \begin{align}
-  \begin{array}{c|ccccccccc}
- &  &  &  &  &  &  &  &  & \\
-0.235 & 0.235 &  &  &  &  &  &  &  & \\
-0.286 & 0.111 & 0.175 &  &  &  &  &  &  & \\
-0.297 & 0.050 & 0.079 & 0.168 &  &  &  &  &  & \\
-0.612 & 0.144 & 0.227 & 0.241 &  &  &  &  &  & \\
-0.547 & 0.046 & 0.072 & 0.144 & 0.299 & -0.013 &  &  &  & \\
-0.760 & 0.059 & 0.093 & 0.109 & 0.227 & -0.010 & 0.282 &  &  & \\
-0.714 & 0.114 & 0.180 & 0.132 & 0.107 & -0.129 & 0.133 & 0.176 &  & \\
-0.915 & 0.096 & 0.152 & 0.112 & 0.091 & -0.109 & 0.112 & 0.148 & 0.313 & \\
+  \begin{array}{c|ccccccccccccc}
+ &  &  &  &  &  &  &  &  &  &  &  &  & \\
+0.056 & 0.056 &  &  &  &  &  &  &  &  &  &  &  & \\
+0.083 & 0.021 & 0.062 &  &  &  &  &  &  &  &  &  &  & \\
+0.125 & 0.031 &  & 0.094 &  &  &  &  &  &  &  &  &  & \\
+0.312 & 0.312 &  & -1.172 & 1.172 &  &  &  &  &  &  &  &  & \\
+0.375 & 0.037 &  &  & 0.188 & 0.150 &  &  &  &  &  &  &  & \\
+0.148 & 0.048 &  &  & 0.112 & -0.026 & 0.013 &  &  &  &  &  &  & \\
+0.465 & 0.017 &  &  & 0.388 & 0.036 & 0.197 & -0.173 &  &  &  &  &  & \\
+0.565 & 0.069 &  &  & -0.634 & -0.161 & 0.139 & 0.941 & 0.212 &  &  &  &  & \\
+0.650 & 0.184 &  &  & -2.469 & -0.291 & -0.026 & 2.848 & 0.281 & 0.124 &  &  &  & \\
+0.925 & -1.215 &  &  & 16.673 & 0.916 & -6.057 & -16.004 & 14.849 & -13.372 & 5.134 &  &  & \\
+1.000 & 0.259 &  &  & -4.774 & -0.435 & -3.049 & 5.578 & 6.156 & -5.062 & 2.194 & 0.135 &  & \\
+1.000 & 0.822 &  &  & -11.659 & -0.758 & 0.714 & 12.076 & -2.128 & 1.990 & -0.234 & 0.176 &  & \\
 \hline
- & 0.089 & 0.103 & 0.111 & 0.159 & -0.061 & 0.197 & 0.071 & 0.151 & 0.179
+ & 0.042 &  &  &  &  & -0.055 & 0.239 & 0.704 & -0.760 & 0.661 & 0.158 & -0.238 & 0.250\\
+ & 0.030 &  &  &  &  & -0.829 & 0.311 & 2.467 & -2.547 & 1.444 & 0.079 & 0.044 & 
 \end{array}\end{align}
 			<h2>Properties</h2>
 			<ul>
-                            <li>Order of accuracy: $5$</li>
+                            <li>Order of accuracy: $8$</li>
                             <li>Stage order: $1$</li>
-                            <li>Stability function: $$1.0 + 1.0 z + 0.499999999999999 z^{2} + 0.166666666666667 z^{3} + 0.0416666666666667 z^{4} + 0.00833333333333334 z^{5} + 0.00127193989229133 z^{6} + 0.000124749929825894 z^{7} + 5.35100760529182 \cdot 10^{-6} z^{8}$$</li>
+                            <li>Stability function: $$1.0 + 1.0 z + 0.5 z^{2} + 0.166666666666668 z^{3} + 0.0416666666666668 z^{4} + 0.00833333333333335 z^{5} + 0.00138888888888889 z^{6} + 0.000198412698412699 z^{7} + 2.48015873015873 \cdot 10^{-5} z^{8} + 2.75212799010471 \cdot 10^{-6} z^{9} + 2.42319965869587 \cdot 10^{-7} z^{10} + 2.43897182054432 \cdot 10^{-8} z^{11} - 2.03461528968577 \cdot 10^{-10} z^{12}$$</li>
                             <li>Radius of absolute monotonicity: $0$</li>
 
                         </ul>
