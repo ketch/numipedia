@@ -11,72 +11,97 @@
 <ul>
 </ul>
 
-<div id="filters">
+<form class="controls" id="Filters">
+  <!-- We can add an unlimited number of "filter groups" using the following format: -->
+  
+  <p>  <input type="text" id="input" placeholder="Type here"></p>
+  
 
-  <p><input type="text" id="quicksearch" placeholder="Search" /></p>
-
-  <div class="ui-group">
-    <h3>Type</h3>
-    <div class="button-group js-radio-button-group" data-filter-group="imex">
-      <button class="button is-checked" data-filter="">any</button>
-      <button class="button" data-filter=".explicit">Explicit</button>
-      <button class="button" data-filter=".implicit">Implicit</button>
-      <button class="button" data-filter=".diagonally-implicit">Diagonally implicit</button>
+  <fieldset>
+    <h4>Type</h4>
+    <div class="checkbox">
+      <input type="checkbox" value=".explicit"/>
+      <label>Explicit</label>
     </div>
-  </div>
-
-  <div class="ui-group">
-    <h3>Embedded pair</h3>
-    <div class="button-group js-radio-button-group" data-filter-group="Pair">
-      <button class="button is-checked" data-filter="">any</button>
-      <button class="button" data-filter=".pair">Yes</button>
-      <button class="button" data-filter=".not-pair">No</button>
+    <div class="checkbox">
+      <input type="checkbox" value=".implicit"/>
+      <label>Implicit</label>
     </div>
-  </div>
-
-  <div class="ui-group">
-    <h3>Order</h3>
-    <div class="button-group js-radio-button-group" data-filter-group="order">
-      <button class="button is-checked" data-filter="">any</button>
-      <button class="button" data-filter=".order-1">1</button>
-      <button class="button" data-filter=".order-2">2</button>
-      <button class="button" data-filter=".order-3">3</button>
-      <button class="button" data-filter=".order-4">4</button>
-      <button class="button" data-filter=".order-5">5</button>
-      <button class="button" data-filter=".order-6">6</button>
+    <div class="checkbox">
+      <input type="checkbox" value=".diagonally-implicit"/>
+      <label>Diagonally implicit</label>
     </div>
-  </div>
-
-  <div class="ui-group">
-    <h3>SSP</h3>
-    <div class="button-group js-radio-button-group" data-filter-group="SSP">
-      <button class="button is-checked" data-filter="">any</button>
-      <button class="button" data-filter=".ssp">SSP</button>
-      <button class="button" data-filter=".not-ssp">not SSP</button>
+  </fieldset>
+  
+  <fieldset>
+    <h4>Pairs</h4>
+    <div class="checkbox">
+      <input type="checkbox" value=".not-pair"/>
+      <label>Single methods</label>
     </div>
-  </div>
+    <div class="checkbox">
+      <input type="checkbox" value=".pair"/>
+      <label>Embedded pairs</label>
+    </div>
+  </fieldset>
 
-</div>
+  <fieldset>
+    <h4>SSP</h4>
+    <div class="checkbox">
+      <input type="checkbox" value=".ssp"/>
+      <label>SSP only</label>
+    </div>
+  </fieldset>
+  
+  <fieldset>
+    <h4>Order</h4>
+    <div class="checkbox">
+      <input type="checkbox" value=".order-1"/>
+      <label>1</label>
+    </div>
+    <div class="checkbox">
+      <input type="checkbox" value=".order-2"/>
+      <label>2</label>
+    </div>
+    <div class="checkbox">
+      <input type="checkbox" value=".order-3"/>
+      <label>3</label>
+    </div>
+    <div class="checkbox">
+      <input type="checkbox" value=".order-4"/>
+      <label>4</label>
+    </div>
+    <div class="checkbox">
+      <input type="checkbox" value=".order-5"/>
+      <label>5</label>
+    </div>
+    <div class="checkbox">
+      <input type="checkbox" value=".order-6"/>
+      <label>6</label>
+    </div>
+  </fieldset>
+  
+  <button id="Reset">Clear Filters</button>
+</form>
 
-<div id="sorts" class="button-group">
-    <button class="button is-checked" data-sort-value="original-order">original order</button>
-    <button class="button" data-sort-value="name">name</button>
-    <button class="button" data-sort-value="order">order</button>
-    <button class="button" data-sort-value="stages">stages</button>
-</div>
 
+<div id="Container" class="container">
+  <div class="fail-message"><span>No items were found matching the selected filters</span></div>
 
-<div class="isotope">
-
-    % for name, clstr in class_str.iteritems():
-    <a href="/methods/${name}.html"><div class="${clstr}">
-    <h3 class="name">${name}</h3>
+    % for name, props in method_props.iteritems():
+    <a href="/methods/${name}.html"><div class="${props['class string']}">
+    <h3 class="name">${props['name']}</h3>
     </div></a>
     % endfor
+
+  <div class="gap"></div>
+  <div class="gap"></div>
+  <div class="gap"></div>
+  <div class="gap"></div>
 </div>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="isotope.pkgd.min.js"></script>
+<script src="jquery.mixitup.js"></script>
 <script type="text/javascript" src="test.js"></script>
 </body>
 </html>
