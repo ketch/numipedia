@@ -28,6 +28,44 @@ def write_numipedia():
         method = lm.backward_difference_formula(k)
         methods[method.name] = method
 
+    method = rk.SSPRK2(4)
+    methods[method.name] = method
+    method = rk.SSPRK3(4)
+    methods[method.name] = method
+    method = rk.SSPRK3(9)
+    methods[method.name] = method
+    method = rk.SSPIRK3(3)
+    methods[method.name] = method
+    method = rk.SSPIRK3(4)
+    methods[method.name] = method
+
+    method = rk.RKC1(5)
+    methods[method.name] = method
+    method = rk.RKC1(20)
+    methods[method.name] = method
+    method = rk.RKC2(5)
+    methods[method.name] = method
+    method = rk.RKC2(20)
+    methods[method.name] = method
+
+    method = rk.DC_pair(3)
+    methods[method.name] = method
+    method = rk.DC_pair(4)
+    methods[method.name] = method
+
+    method = rk.extrap_pair(4)
+    methods[method.name] = method
+    method = rk.extrap_pair(6)
+    methods[method.name] = method
+
+    method = rk.extrap_pair(2,base='midpoint')
+    methods[method.name] = method
+    method = rk.extrap_pair(3,base='midpoint')
+    methods[method.name] = method
+    method = rk.extrap_pair(4,base='midpoint')
+    methods[method.name] = method
+
+
     write_index_page(methods)
 
     path = './methods/'
