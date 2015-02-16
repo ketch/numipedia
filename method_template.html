@@ -51,7 +51,9 @@
 			<ul>
                             <li>Order of accuracy: ${order}</li>
                             <li>Stage order: ${stage_order}</li>
+                            % if stabfun is not None:
                             <li>Stability function: ${stabfun}</li>
+                            % endif
                             <li>Radius of absolute monotonicity: ${amrad}</li>
 
                         </ul>

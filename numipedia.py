@@ -7,6 +7,8 @@ The encyclopedia may include:
     - More advanced: the ability to generate method-to-method comparisons
     - The ability to search for all methods satisfying a given set of criteria
 """
+from nodepy import rk, lm
+
 def write_numipedia():
     """
     Main function to write the whole numipedia site.
@@ -17,8 +19,14 @@ def write_numipedia():
         - Add parameterized method families
         - Add more methods
     """
-    from nodepy import rk
     methods = rk.loadRKM('All')
+    for k in range(2,6):
+        method = lm.Adams_Bashforth(k)
+        methods[method.name] = method
+        method = lm.Adams_Moulton(k)
+        methods[method.name] = method
+        method = lm.backward_difference_formula(k)
+        methods[method.name] = method
 
     write_index_page(methods)
 
@@ -52,15 +60,20 @@ def method_page(method,fname='test.html',template_file='method_template.html'):
     fig = method.plot_stability_region(to_file=plot_file,longtitle=False)
     plt.close()
 
-    # Compute and render stability function
-    p,q=method.stability_function()
-    from sympy import symbols, latex
-    z = symbols('z')
-    pp = sum(co*z**i for i,co in enumerate(p.c[::-1]))
-    qq = sum(co*z**i for i,co in enumerate(q.c[::-1]))
-    stabfun = "$$"+latex(pp/qq,order='old')+"$$"
+    if isinstance(method,rk.RungeKuttaMethod):
+        # Compute and render stability function
+        p,q=method.stability_function()
+        from sympy import symbols, latex
+        z = symbols('z')
+        pp = sum(co*z**i for i,co in enumerate(p.c[::-1]))
+        qq = sum(co*z**i for i,co in enumerate(q.c[::-1]))
+        stabfun = "$$"+latex(pp/qq,order='old')+"$$"
+        stage_order = tex(method.__num__().stage_order())
+    else:
+        stabfun = None
+        stage_order = method.order()
 
-    if method.info is '':
+    if method.info is '' and hasattr(method,'mtype'):
         method.info = method.mtype
 
     mytemplate = Template(filename=template_file)
@@ -71,7 +84,7 @@ def method_page(method,fname='test.html',template_file='method_template.html'):
                           stabfun=stabfun,
                           amrad=tex(method.absolute_monotonicity_radius()),
                           order = tex(method.__num__().order()),
-                          stage_order = tex(method.__num__().stage_order())
+                          stage_order = stage_order
                           )
 
 
@@ -87,12 +100,16 @@ def write_index_page(methods,fname='index.html',template_file='index_template.ht
 
         if method.is_explicit(): properties.append("explicit")
         else: properties.append("implicit")
-        if method.mtype == 'Diagonally implicit Runge-Kutta method':
-            properties.append('diagonally-implicit')
+
+        if isinstance(method,lm.LinearMultistepMethod):
+            properties.append('multistep')
+        elif isinstance(method,rk.RungeKuttaMethod):
+            properties.append('runge-kutta')
+            if method.mtype == 'Diagonally implicit Runge-Kutta method':
+                properties.append('diagonally-implicit')
 
         if method.absolute_monotonicity_radius()>1.e-10:
             properties.append("ssp")
-        else: properties.append("not-ssp")
 
         properties.append("order-%s" % str(method.p))
 

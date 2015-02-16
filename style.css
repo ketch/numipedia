@@ -1,5 +1,5 @@
 body{
-  background: #D1DBBD;
+  background: white;
 }
 
 body, button{
@@ -47,11 +47,19 @@ button:focus{
 fieldset{
   display: inline-block;
   vertical-align: top;
-  margin: 0 1em 0 0;
+  margin: 0 1em 1em 0;
   background: #666;
   padding: .5em;
   border-radius: 3px;
   color: white;
+}
+
+fieldset h4{
+    margin-top: 5%;
+}
+
+fieldset input{
+font-size: 18px;
 }
 
 .checkbox{
