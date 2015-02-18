@@ -10,7 +10,14 @@ The encyclopedia may include:
 from nodepy import rk, lm
 import os
 
-def write_numipedia():
+parent_path = os.path.abspath(os.path.dirname(os.path.realpath(__file__))+'/..')
+print parent_path
+img_dir = 'img'
+methods_dir = 'methods'
+top_dir='numipedia'
+top_dir_abs = '/'+top_dir
+
+def write_numipedia(rewrite_method_pages=True):
     """
     Main function to write the whole numipedia site.
     Loops over all methods in rk.loadRKM('All') and writes a page for each.
@@ -66,24 +73,30 @@ def write_numipedia():
     method = rk.extrap_pair(4,base='midpoint')
     methods[method.name] = method
 
+    write_index_page(methods,index_file_path=os.path.join(parent_path,top_dir))
 
-    write_index_page(methods)
+    if rewrite_method_pages:
+        methods_path = os.path.join(parent_path,top_dir,methods_dir)
+        print methods_path
+        if not os.path.exists(methods_path):
+            os.makedirs(methods_path)
+        img_path = os.path.join(parent_path,top_dir,img_dir)
+        print img_path
+        if not os.path.exists(img_path):
+            os.makedirs(img_path)
 
-    path = './methods/'
-    if not os.path.exists(path):
-        os.makedirs(path)
+        template_file = os.path.join(parent_path,top_dir,'method_template.html')
+        for key,method in methods.iteritems():
+            fname = os.path.join(methods_path,method.shortname+'.html')
+            print fname
+            s = method_page(method,template_file)
 
-    for key,method in methods.iteritems():
-        fname = method.shortname+'.html'
-        print fname
-        s = method_page(method, fname=fname)
-
-        outfile = open(path+fname,'w')
-        outfile.write(s)
-        outfile.close()
+            outfile = open(fname,'w')
+            outfile.write(s)
+            outfile.close()
 
 
-def method_page(method,fname='test.html',template_file='method_template.html'):
+def method_page(method,template_file='method_template.html'):
     """
     Writes an HTML page for a specified method, using the template file.
     Uses mako to do simple substitutions.
@@ -97,7 +110,9 @@ def method_page(method,fname='test.html',template_file='method_template.html'):
     import matplotlib.pyplot as plt
 
     # Plot stability region.
-    plot_file = './methods/'+method.shortname+'.png'
+    plot_file_name = method.shortname+'.png'
+    plot_file = os.path.join(parent_path,top_dir,img_dir,plot_file_name)
+    plot_urlpath = os.path.join(top_dir_abs,img_dir,plot_file_name)
     fig = method.plot_stability_region(to_file=plot_file,longtitle=False)
     plt.close()
 
@@ -120,7 +135,7 @@ def method_page(method,fname='test.html',template_file='method_template.html'):
     mytemplate = Template(filename=template_file)
     return mytemplate.render(name=method.name,
                           desc=method.info,
-                          plot_file=plot_file[1:],
+                          plot_urlpath=plot_urlpath,
                           butcher=method.latex(),
                           stabfun=stabfun,
                           amrad=tex(method.absolute_monotonicity_radius()),
@@ -129,9 +144,12 @@ def method_page(method,fname='test.html',template_file='method_template.html'):
                           )
 
 
-def write_index_page(methods,fname='index.html',template_file='index_template.html'):
+def write_index_page(methods,fname='index.html',
+                     template_file='index_template.html',
+                     index_file_path='.',
+                     methods_urlpath='/numipedia/methods'):
     from mako.template import Template
-    mytemplate = Template(filename = template_file)
+    mytemplate = Template(filename = os.path.join(index_file_path,template_file))
 
     method_props = {}
     for method_name, method in methods.iteritems():
@@ -162,8 +180,8 @@ def write_index_page(methods,fname='index.html',template_file='index_template.ht
         methdict['class string'] = " ".join(properties)
         methdict['name'] = method.name
 
-    s = mytemplate.render(method_props=method_props)
-    with open(fname,'w') as outfile:
+    s = mytemplate.render(method_props=method_props,methods_urlpath=methods_urlpath)
+    with open(os.path.join(index_file_path,fname),'w') as outfile:
         outfile.write(s)
 
 def tex(s):
