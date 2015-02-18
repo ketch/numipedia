@@ -8,6 +8,7 @@ The encyclopedia may include:
     - The ability to search for all methods satisfying a given set of criteria
 """
 from nodepy import rk, lm
+import os
 
 def write_numipedia():
     """
@@ -69,6 +70,8 @@ def write_numipedia():
     write_index_page(methods)
 
     path = './methods/'
+    if not os.path.exists(path):
+        os.makedirs(path)
 
     for key,method in methods.iteritems():
         fname = method.shortname+'.html'
