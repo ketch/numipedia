@@ -1,3 +1,7 @@
+<%!
+    import os
+%>
+
 <html>
 <head>
     <meta name="description" content="The Numerical Integrator Encyclopedia" />
@@ -97,7 +101,7 @@
   <div class="fail-message"><span>No items were found matching the selected filters</span></div>
 
     % for name, props in method_props.iteritems():
-    <a href="methods/${name}.html"><div class="${props['class string']}">
+    <a href="${os.path.join(methods_urlpath,name+'.html')}"><div class="${props['class string']}">
     <h3 class="name">${props['name']}</h3>
     </div></a>
     % endfor
