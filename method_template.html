@@ -1,3 +1,7 @@
+<%!
+    import nodepy
+    doc_url = "http://numerics.kaust.edu.sa/nodepy/"
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
@@ -5,13 +9,15 @@
 	<meta name="description" content="Your description goes here" />
 	<meta name="keywords" content="your,keywords,goes,here" />
 	<meta name="author" content="David I. Ketcheson" />
-	<link href='http://fonts.googleapis.com/css?family=Economica' rel='stylesheet' type='text/css' />
+        <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="../freestyle.css" title="The Grid" media="all" />
 	<title>${name}</title>
 
         <script type="text/x-mathjax-config">
                      MathJax.Hub.Config({
-                       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+                       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+                       "HTML-CSS": { linebreaks: { automatic: true } },
+                       SVG:        { linebreaks: { automatic: true } }
                      });
         </script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -21,76 +27,71 @@
 <div id="layout">
 
 	<div id="header" class="row">
-		<div class="col c6">
+		<div class="col c10">
 			<h1>${name}</h1>
 			<p class="slogan">${desc}</p>
 		</div>
 		
 		<div class="col c2">
-		</div>
-
-		<div class="col c2">
-		</div>
-
-		<div class="col c2">
 			<ul class="menu">
-				<li><a href="index.html">Numipedia</a></li>
+				<li><a href="/numipedia/index.html">Back to index</a></li>
 			</ul>
 		</div>
 	</div>
 	
 	<div class="row">
 		<div class="col c4">
+                    <figure>
 			<img src="${plot_urlpath}" alt="Absolute stability region" />
+                        <figcaption>Stable region in red.</figcaption>
+                    </figure>
 		</div>
 		
 		<div class="col c8 alignjustify">
 			<h2>Coefficients</h2>
-                        ${butcher}
+                        <div style="font-size: ${min(100,600/len(method))}%">
+                            ${butcher}</div>
 			<h2>Properties</h2>
 			<ul>
-                            <li>Order of accuracy: ${order}</li>
-                            <li>Stage order: ${stage_order}</li>
+                            <li><a href="${doc_url}rkm.html#accuracy">
+                                Order of accuracy</a>: ${order}
+                            </li>
+                            <li><a href="${doc_url}rkm.html#nodepy.runge_kutta_method.RungeKuttaMethod.stage_order">
+                                Stage order</a>: ${stage_order}
+                            </li>
                             % if stabfun is not None:
-                            <li>Stability function: ${stabfun}</li>
+                            <li><a href="${doc_url}rkm.html#classical-linear-stability">
+                                Stability function</a>: ${stabfun}
+                            </li>
                             % endif
-                            <li>Radius of absolute monotonicity: ${amrad}</li>
+                            <li><a href="${doc_url}rkm.html#nonlinear-stability">
+                                Radius of absolute monotonicity</a>: ${amrad}
+                            </li>
+                            % if isinstance(method,nodepy.rk.RungeKuttaMethod):
+                            <li>Principal error norm: ${method.principal_error_norm()}</li>
+                            % endif
+                            % if isinstance(method,nodepy.lm.LinearMultistepMethod):
+                            <li>$A(\alpha)$-stability angle: ${method.A_alpha_stability()}</li>
+                            %endif
+                            % if isinstance(method,nodepy.rk.ExplicitRungeKuttaMethod):
+                            <li>Imaginary stability interval: ${method.imaginary_stability_interval()}</li>
+                            <li>Real stability interval: ${method.real_stability_interval()}</li>
+                            % endif
+                            <li>Zero-stable: ${method.is_zero_stable()}</li>
 
                         </ul>
-			<p class="alignright"><a href="#">Read more</a> &raquo;</p>
 		</div>
 	</div>
 	
 	<div class="row separator">
 	</div>
 	
-	<div class="row">
-		<div class="col c2">
-			<h3>Grid 1</h3>
-			<p>Lorem ipsum dolor sit amet...</p>
-		</div>
-
-		<div class="col c2">
-			<h3>Grid 2</h3>
-			<p>Consectetur adipisicing elit...</p>
-		</div>
-
-		<div class="col c2">
-			<h3>Grid 3</h3>
-			<p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
-		</div>
-		
-		<div class="col c6">
-			<h3>Grid 4</h3>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-		</div>
-	</div>
-
 
 	<div id="footer" class="row">
 		<div class="col c12">
-			<p>&copy; 2012 Your Name<br />
-			<a href="http://andreasviklund.com/templates/freestyle/">Template design</a> by <a href="http://andreasviklund.com/">Andreas Viklund</a></p>
+			<p>Numipedia is developed by David I. Ketcheson<br />
+                        <a href="http://github.com/ketch/numipedia">Browse the code on Github</a>
+                        </p>
 		</div>
 	</div>
 </div>
