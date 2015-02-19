@@ -7,7 +7,7 @@ For more information, see http://andreasviklund.com/templates/freestyle/
 
 /* General styles */
 body {background:#0a0a0a url(images/background.jpg) top center no-repeat; color:#ccc; font:110% 'Economica',Tahoma,sans-serif; line-height:1.3em;}
-a {color:#d06060; text-decoration:none; font-weight:400;}
+a {color:#FCFFF5; text-decoration:none; font-weight:400;}
 a:hover {text-decoration:underline;}
 p,ul,ol,dl {margin:0 0 15px 0; line-height:1.5em;}
 h1 {color:#888; font-size:3.6em; margin-bottom:0;}
@@ -15,17 +15,18 @@ h1 a {text-transform:none; font-weight:400;}
 h1 a:hover {text-decoration:none; color:#eee;}
 h2 {font-size:2.2em; color:#333; margin:0 0 5px;}
 h3 {font-size:1.6em; margin:0 0 5px 0;}
-h1,h2,h3 {color:#d06060; font-weight:400; line-height:1.2em; font-family:'Economica', sans-serif;}
+h1,h2,h3 {color:#FCFFF5; font-weight:400; line-height:1.2em; font-family: 'Droid Serif', serif;}
 
 /* Main layout container */
 #layout {margin:40px auto 0; width:960px;}
 body.wider #layout {margin:40px auto 0; width:1200px;}
 
 /* Footer */
-#footer {background:#0a0a0a url(images/insidebg.jpg) top center no-repeat;}
+#footer {background:#0a0a0a url(images/insidebg.jpg) top center no-repeat; font-size: 80%; font-style: italic;}
 #footer .col {color:#555; border-top:1px dotted #1a1a1a; padding:20px 0;}
 #footer p {text-align:center;}
-#footer a {color:#555; font-weight:400; text-decoration:none; border-bottom:1px dotted #333;}
+#footer a {color:#d06060; font-weight:700; text-decoration:none; border-bottom:1px dotted #333;}
+#footer a:visited {color:#d06060; font-weight:700; text-decoration:none; border-bottom:1px dotted #333;}
 #footer a:hover {color:#aaa; text-decoration:none; border-bottom:1px dotted #888;}
 
 /* Grid classes, fixed width, 960px with 12 columns */
@@ -83,12 +84,12 @@ ul.menu li a:hover {color:#eee; text-decoration:none;}
 
 /* Light styles, apply by using class="light" on the body HTML element */
 body.light {background:#f5f5f5 url(images/background-light.jpg) top center no-repeat; color:#555;}
-body.light a {color:#d06060;}
+body.light a {color:#569CBB;}
 body.light a:hover {color:#555;}
 body.light h1 {color:#888; font-size:3.6em; margin-bottom:0;}
 body.light h1 a:hover {color:#303030;}
 body.light h2 {color:#555;}
-body.light h1, body.light h2, body.light h3 {color:#d06060;}
+body.light h1, body.light h2, body.light h3 {color:black;}
 body.light ul.menu {border-top:1px solid #ddd;}
 body.light ul.menu li {border-bottom:1px solid #ddd;}
 body.light ul.menu li a:hover {color:#333;}
@@ -106,3 +107,12 @@ body.pink a {color:#f06ba0;}
 body.pink h1, body.pink h2, body.pink h3 {color:#f06ba0;}
 body.orange a {color:#e58c24;}
 body.orange h1, body.orange h2, body.orange h3 {color:#e58c24;}
+
+figure {
+    display: inline-block;
+    border: 2px black;
+}
+figcaption {
+    text-align: center;
+    font-variant: small-caps;
+}

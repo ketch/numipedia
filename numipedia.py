@@ -7,7 +7,7 @@ The encyclopedia may include:
     - More advanced: the ability to generate method-to-method comparisons
     - The ability to search for all methods satisfying a given set of criteria
 """
-from nodepy import rk, lm
+from nodepy import rk, lm, lsrk
 import os
 
 parent_path = os.path.abspath(os.path.dirname(os.path.realpath(__file__))+'/..')
@@ -28,6 +28,7 @@ def write_numipedia(rewrite_method_pages=True):
         - Add more methods
     """
     methods = rk.loadRKM('All')
+
     for k in range(2,6):
         method = lm.Adams_Bashforth(k)
         methods[method.name] = method
@@ -35,6 +36,13 @@ def write_numipedia(rewrite_method_pages=True):
         methods[method.name] = method
         method = lm.backward_difference_formula(k)
         methods[method.name] = method
+
+    for key in ['DDAS47','LDDC46','RK45[2R]C','RK58[3R]C','RK59[2R]C']:
+        method = lsrk.load_2R(key)
+        methods[method.name] = method
+
+    for key in ['NSSP32','NSSP33']:
+        del methods[key]
 
     method = rk.SSPRK2(4)
     methods[method.name] = method
@@ -61,9 +69,9 @@ def write_numipedia(rewrite_method_pages=True):
     method = rk.DC_pair(4)
     methods[method.name] = method
 
-    method = rk.extrap_pair(4)
+    method = rk.extrap_pair(4,base='euler')
     methods[method.name] = method
-    method = rk.extrap_pair(6)
+    method = rk.extrap_pair(6,base='euler')
     methods[method.name] = method
 
     method = rk.extrap_pair(2,base='midpoint')
@@ -119,7 +127,14 @@ def method_page(method,template_file='method_template.html'):
     if isinstance(method,rk.RungeKuttaMethod):
         # Compute and render stability function
         p,q=method.stability_function()
-        from sympy import symbols, latex
+        from sympy import symbols, latex, factorial, Rational
+
+        # Make order-correct coeffs exact
+        for pol in (p,q):
+            for i, coeff in enumerate(pol.c[::-1]):
+                if abs(coeff-1./factorial(i))<1.e-14:
+                    pol.c[-i-1] = Rational(1,factorial(i))
+
         z = symbols('z')
         pp = sum(co*z**i for i,co in enumerate(p.c[::-1]))
         qq = sum(co*z**i for i,co in enumerate(q.c[::-1]))
@@ -133,13 +148,14 @@ def method_page(method,template_file='method_template.html'):
         method.info = method.mtype
 
     mytemplate = Template(filename=template_file)
-    return mytemplate.render(name=method.name,
+    return mytemplate.render(method=method,
+                          name=method.name,
                           desc=method.info,
                           plot_urlpath=plot_urlpath,
                           butcher=method.latex(),
                           stabfun=stabfun,
                           amrad=tex(method.absolute_monotonicity_radius()),
-                          order = tex(method.__num__().order()),
+                          order = tex(method.p),#__num__().order()),
                           stage_order = stage_order
                           )
 
@@ -164,8 +180,13 @@ def write_index_page(methods,fname='index.html',
             properties.append('multistep')
         elif isinstance(method,rk.RungeKuttaMethod):
             properties.append('runge-kutta')
-            if method.mtype == 'Diagonally implicit Runge-Kutta method':
-                properties.append('diagonally-implicit')
+            if hasattr(method,'mtype'):
+                if method.mtype == 'Diagonally implicit Runge-Kutta method':
+                    properties.append('diagonally-implicit')
+        if isinstance(method,lsrk.TwoRRungeKuttaMethod) or \
+           isinstance(method,lsrk.TwoSRungeKuttaMethod) or \
+           isinstance(method,lsrk.TwoSRungeKuttaPair):
+            properties.append('low-storage')
 
         if method.absolute_monotonicity_radius()>1.e-10:
             properties.append("ssp")
