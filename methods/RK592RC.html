@@ -8,7 +8,7 @@
 	<meta name="author" content="David I. Ketcheson" />
         <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="../freestyle.css" title="The Grid" media="all" />
-	<title>Radau IIA2</title>
+	<title>RK5(4)9[2R+]C</title>
 
         <script type="text/x-mathjax-config">
                      MathJax.Hub.Config({
@@ -25,8 +25,8 @@
 
 	<div id="header" class="row">
 		<div class="col c10">
-			<h1>Radau IIA2</h1>
-			<p class="slogan">The RadauIIA method with 2 stages</p>
+			<h1>RK5(4)9[2R+]C</h1>
+			<p class="slogan">A 2R Method of Kennedy et. al.</p>
 		</div>
 		
 		<div class="col c2">
@@ -39,36 +39,45 @@
 	<div class="row">
 		<div class="col c4">
                     <figure>
-			<img src="/numipedia/img/RadauIIA2.png" alt="Absolute stability region" />
+			<img src="/numipedia/img/RK592RC.png" alt="Absolute stability region" />
                         <figcaption>Stable region in red.</figcaption>
                     </figure>
 		</div>
 		
 		<div class="col c8 alignjustify">
 			<h2>Coefficients</h2>
-                        <div style="font-size: 100%">
+                        <div style="font-size: 66%">
                             \begin{align}
-  \begin{array}{c|cc}
-\frac{1}{3} & \frac{5}{12} & - \frac{1}{12}\\
-1 & \frac{3}{4} & \frac{1}{4}\\
+  \begin{array}{c|ccccccccc}
+ &  &  &  &  &  &  &  &  & \\
+0.204 & 0.204 &  &  &  &  &  &  &  & \\
+1.010 & 0.096 & 0.914 &  &  &  &  &  &  & \\
+0.194 & 0.096 & 0.056 & 0.041 &  &  &  &  &  & \\
+0.431 & 0.096 & 0.056 & -0.023 & 0.301 &  &  &  &  & \\
+0.353 & 0.096 & 0.056 & -0.023 & 0.036 & 0.188 &  &  &  & \\
+0.990 & 0.096 & 0.056 & -0.023 & 0.036 & 0.132 & 0.693 &  &  & \\
+0.762 & 0.096 & 0.056 & -0.023 & 0.036 & 0.132 & 0.296 & 0.169 &  & \\
+0.851 & 0.096 & 0.056 & -0.023 & 0.036 & 0.132 & 0.296 & 0.050 & 0.207 & \\
 \hline
- & \frac{3}{4} & \frac{1}{4}
+ & 0.096 & 0.056 & -0.023 & 0.036 & 0.132 & 0.296 & 0.050 & 0.110 & 0.247
 \end{array}\end{align}</div>
 			<h2>Properties</h2>
 			<ul>
                             <li><a href="http://numerics.kaust.edu.sa/nodepy/rkm.html#accuracy">
-                                Order of accuracy</a>: $3$
+                                Order of accuracy</a>: $5$
                             </li>
                             <li><a href="http://numerics.kaust.edu.sa/nodepy/rkm.html#nodepy.runge_kutta_method.RungeKuttaMethod.stage_order">
-                                Stage order</a>: $2$
+                                Stage order</a>: $1$
                             </li>
                             <li><a href="http://numerics.kaust.edu.sa/nodepy/rkm.html#classical-linear-stability">
-                                Stability function</a>: $$\frac{1 + \frac{z}{3}}{1 - \frac{2 z}{3} + \frac{z^{2}}{6}}$$
+                                Stability function</a>: $$1 + z + \frac{z^{2}}{2} + \frac{z^{3}}{6} + \frac{z^{4}}{24} + \frac{z^{5}}{120} + 0.00147327636780177 z^{6} + 0.000231205231313762 z^{7} + 3.34957136799547 \cdot 10^{-5} z^{8} + 2.61636886060703 \cdot 10^{-6} z^{9}$$
                             </li>
                             <li><a href="http://numerics.kaust.edu.sa/nodepy/rkm.html#nonlinear-stability">
                                 Radius of absolute monotonicity</a>: $0$
                             </li>
-                            <li>Principal error norm: 0.0244976973247</li>
+                            <li>Principal error norm: 0.00101445668726</li>
+                            <li>Imaginary stability interval: 5.73503553256e-07</li>
+                            <li>Real stability interval: 6.31332307906</li>
                             <li>Zero-stable: True</li>
 
                         </ul>

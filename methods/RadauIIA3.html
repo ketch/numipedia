@@ -1,3 +1,4 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
@@ -5,13 +6,15 @@
 	<meta name="description" content="Your description goes here" />
 	<meta name="keywords" content="your,keywords,goes,here" />
 	<meta name="author" content="David I. Ketcheson" />
-	<link href='http://fonts.googleapis.com/css?family=Economica' rel='stylesheet' type='text/css' />
+        <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="../freestyle.css" title="The Grid" media="all" />
 	<title>Radau IIA3</title>
 
         <script type="text/x-mathjax-config">
                      MathJax.Hub.Config({
-                       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+                       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+                       "HTML-CSS": { linebreaks: { automatic: true } },
+                       SVG:        { linebreaks: { automatic: true } }
                      });
         </script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -21,81 +24,67 @@
 <div id="layout">
 
 	<div id="header" class="row">
-		<div class="col c6">
+		<div class="col c10">
 			<h1>Radau IIA3</h1>
 			<p class="slogan">The RadauIIA method with 3 stages</p>
 		</div>
 		
 		<div class="col c2">
-		</div>
-
-		<div class="col c2">
-		</div>
-
-		<div class="col c2">
 			<ul class="menu">
-				<li><a href="index.html">Numipedia</a></li>
+				<li><a href="/numipedia/index.html">Back to index</a></li>
 			</ul>
 		</div>
 	</div>
 	
 	<div class="row">
 		<div class="col c4">
+                    <figure>
 			<img src="/numipedia/img/RadauIIA3.png" alt="Absolute stability region" />
+                        <figcaption>Stable region in red.</figcaption>
+                    </figure>
 		</div>
 		
 		<div class="col c8 alignjustify">
 			<h2>Coefficients</h2>
-                        \begin{align}
+                        <div style="font-size: 100%">
+                            \begin{align}
   \begin{array}{c|ccc}
 - \frac{\sqrt{6}}{10} + \frac{2}{5} & - \frac{7 \sqrt{6}}{360} + \frac{11}{45} & - \frac{169 \sqrt{6}}{1800} + \frac{37}{225} & - \frac{2}{225} + \frac{\sqrt{6}}{75}\\
 \frac{\sqrt{6}}{10} + \frac{2}{5} & \frac{37}{225} + \frac{169 \sqrt{6}}{1800} & \frac{7 \sqrt{6}}{360} + \frac{11}{45} & - \frac{\sqrt{6}}{75} - \frac{2}{225}\\
 1 & - \frac{\sqrt{6}}{36} + \frac{4}{9} & \frac{\sqrt{6}}{36} + \frac{4}{9} & \frac{1}{9}\\
 \hline
  & - \frac{\sqrt{6}}{36} + \frac{4}{9} & \frac{\sqrt{6}}{36} + \frac{4}{9} & \frac{1}{9}
-\end{array}\end{align}
+\end{array}\end{align}</div>
 			<h2>Properties</h2>
 			<ul>
-                            <li>Order of accuracy: $5$</li>
-                            <li>Stage order: $3$</li>
-                            <li>Stability function: $$\frac{1 + \frac{2 z}{5} + \frac{z^{2}}{20}}{1 - \frac{3 z}{5} + \frac{3 z^{2}}{20} - \frac{z^{3}}{60}}$$</li>
-                            <li>Radius of absolute monotonicity: $0$</li>
+                            <li><a href="http://numerics.kaust.edu.sa/nodepy/rkm.html#accuracy">
+                                Order of accuracy</a>: $5$
+                            </li>
+                            <li><a href="http://numerics.kaust.edu.sa/nodepy/rkm.html#nodepy.runge_kutta_method.RungeKuttaMethod.stage_order">
+                                Stage order</a>: $3$
+                            </li>
+                            <li><a href="http://numerics.kaust.edu.sa/nodepy/rkm.html#classical-linear-stability">
+                                Stability function</a>: $$\frac{1 + \frac{2 z}{5} + \frac{z^{2}}{20}}{1 - \frac{3 z}{5} + \frac{3 z^{2}}{20} - \frac{z^{3}}{60}}$$
+                            </li>
+                            <li><a href="http://numerics.kaust.edu.sa/nodepy/rkm.html#nonlinear-stability">
+                                Radius of absolute monotonicity</a>: $0$
+                            </li>
+                            <li>Principal error norm: 0.000989528507253</li>
+                            <li>Zero-stable: True</li>
 
                         </ul>
-			<p class="alignright"><a href="#">Read more</a> &raquo;</p>
 		</div>
 	</div>
 	
 	<div class="row separator">
 	</div>
 	
-	<div class="row">
-		<div class="col c2">
-			<h3>Grid 1</h3>
-			<p>Lorem ipsum dolor sit amet...</p>
-		</div>
-
-		<div class="col c2">
-			<h3>Grid 2</h3>
-			<p>Consectetur adipisicing elit...</p>
-		</div>
-
-		<div class="col c2">
-			<h3>Grid 3</h3>
-			<p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
-		</div>
-		
-		<div class="col c6">
-			<h3>Grid 4</h3>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-		</div>
-	</div>
-
 
 	<div id="footer" class="row">
 		<div class="col c12">
-			<p>&copy; 2012 Your Name<br />
-			<a href="http://andreasviklund.com/templates/freestyle/">Template design</a> by <a href="http://andreasviklund.com/">Andreas Viklund</a></p>
+			<p>Numipedia is developed by David I. Ketcheson<br />
+                        <a href="http://github.com/ketch/numipedia">Browse the code on Github</a>
+                        </p>
 		</div>
 	</div>
 </div>

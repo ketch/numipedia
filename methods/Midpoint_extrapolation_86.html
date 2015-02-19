@@ -8,7 +8,7 @@
 	<meta name="author" content="David I. Ketcheson" />
         <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="../freestyle.css" title="The Grid" media="all" />
-	<title>Radau IIA2</title>
+	<title>Midpoint extrapolation 8(6)</title>
 
         <script type="text/x-mathjax-config">
                      MathJax.Hub.Config({
@@ -25,8 +25,8 @@
 
 	<div id="header" class="row">
 		<div class="col c10">
-			<h1>Radau IIA2</h1>
-			<p class="slogan">The RadauIIA method with 2 stages</p>
+			<h1>Midpoint extrapolation 8(6)</h1>
+			<p class="slogan">Explicit embedded Runge-Kutta pair</p>
 		</div>
 		
 		<div class="col c2">
@@ -39,36 +39,54 @@
 	<div class="row">
 		<div class="col c4">
                     <figure>
-			<img src="/numipedia/img/RadauIIA2.png" alt="Absolute stability region" />
+			<img src="/numipedia/img/Midpoint_extrapolation_86.png" alt="Absolute stability region" />
                         <figcaption>Stable region in red.</figcaption>
                     </figure>
 		</div>
 		
 		<div class="col c8 alignjustify">
 			<h2>Coefficients</h2>
-                        <div style="font-size: 100%">
+                        <div style="font-size: 35%">
                             \begin{align}
-  \begin{array}{c|cc}
-\frac{1}{3} & \frac{5}{12} & - \frac{1}{12}\\
-1 & \frac{3}{4} & \frac{1}{4}\\
+  \begin{array}{c|ccccccccccccccccc}
+ &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \\
+\frac{1}{2} & \frac{1}{2} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \\
+\frac{1}{4} & \frac{1}{4} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \\
+\frac{1}{2} &  &  & \frac{1}{2} &  &  &  &  &  &  &  &  &  &  &  &  &  & \\
+\frac{3}{4} & \frac{1}{4} &  &  & \frac{1}{2} &  &  &  &  &  &  &  &  &  &  &  &  & \\
+\frac{1}{6} & \frac{1}{6} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \\
+\frac{1}{3} &  &  &  &  &  & \frac{1}{3} &  &  &  &  &  &  &  &  &  &  & \\
+\frac{1}{2} & \frac{1}{6} &  &  &  &  &  & \frac{1}{3} &  &  &  &  &  &  &  &  &  & \\
+\frac{2}{3} &  &  &  &  &  & \frac{1}{3} &  & \frac{1}{3} &  &  &  &  &  &  &  &  & \\
+\frac{5}{6} & \frac{1}{6} &  &  &  &  &  & \frac{1}{3} &  & \frac{1}{3} &  &  &  &  &  &  &  & \\
+\frac{1}{8} & \frac{1}{8} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \\
+\frac{1}{4} &  &  &  &  &  &  &  &  &  &  & \frac{1}{4} &  &  &  &  &  & \\
+\frac{3}{8} & \frac{1}{8} &  &  &  &  &  &  &  &  &  &  & \frac{1}{4} &  &  &  &  & \\
+\frac{1}{2} &  &  &  &  &  &  &  &  &  &  & \frac{1}{4} &  & \frac{1}{4} &  &  &  & \\
+\frac{5}{8} & \frac{1}{8} &  &  &  &  &  &  &  &  &  &  & \frac{1}{4} &  & \frac{1}{4} &  &  & \\
+\frac{3}{4} &  &  &  &  &  &  &  &  &  &  & \frac{1}{4} &  & \frac{1}{4} &  & \frac{1}{4} &  & \\
+\frac{7}{8} & \frac{1}{8} &  &  &  &  &  &  &  &  &  &  & \frac{1}{4} &  & \frac{1}{4} &  & \frac{1}{4} & \\
 \hline
- & \frac{3}{4} & \frac{1}{4}
+ &  & - \frac{1}{360} & \frac{8}{45} &  & \frac{8}{45} & - \frac{243}{280} &  & - \frac{243}{280} &  & - \frac{243}{280} & \frac{256}{315} &  & \frac{256}{315} &  & \frac{256}{315} &  & \frac{256}{315}\\
+ &  &  & \frac{2}{15} &  & \frac{2}{15} & - \frac{27}{35} &  & - \frac{27}{35} &  & - \frac{27}{35} & \frac{16}{21} &  & \frac{16}{21} &  & \frac{16}{21} &  & \frac{16}{21}
 \end{array}\end{align}</div>
 			<h2>Properties</h2>
 			<ul>
                             <li><a href="http://numerics.kaust.edu.sa/nodepy/rkm.html#accuracy">
-                                Order of accuracy</a>: $3$
+                                Order of accuracy</a>: $8$
                             </li>
                             <li><a href="http://numerics.kaust.edu.sa/nodepy/rkm.html#nodepy.runge_kutta_method.RungeKuttaMethod.stage_order">
-                                Stage order</a>: $2$
+                                Stage order</a>: $1$
                             </li>
                             <li><a href="http://numerics.kaust.edu.sa/nodepy/rkm.html#classical-linear-stability">
-                                Stability function</a>: $$\frac{1 + \frac{z}{3}}{1 - \frac{2 z}{3} + \frac{z^{2}}{6}}$$
+                                Stability function</a>: $$1 + z + \frac{z^{2}}{2} + \frac{z^{3}}{6} + \frac{z^{4}}{24} + \frac{z^{5}}{120} + \frac{z^{6}}{720} + \frac{z^{7}}{5040} + \frac{z^{8}}{40320}$$
                             </li>
                             <li><a href="http://numerics.kaust.edu.sa/nodepy/rkm.html#nonlinear-stability">
                                 Radius of absolute monotonicity</a>: $0$
                             </li>
-                            <li>Principal error norm: 0.0244976973247</li>
+                            <li>Principal error norm: 3.02658988366e-05</li>
+                            <li>Imaginary stability interval: 3.39514022057</li>
+                            <li>Real stability interval: 4.31362722777</li>
                             <li>Zero-stable: True</li>
 
                         </ul>

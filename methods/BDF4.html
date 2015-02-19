@@ -1,3 +1,4 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
@@ -5,13 +6,15 @@
 	<meta name="description" content="Your description goes here" />
 	<meta name="keywords" content="your,keywords,goes,here" />
 	<meta name="author" content="David I. Ketcheson" />
-	<link href='http://fonts.googleapis.com/css?family=Economica' rel='stylesheet' type='text/css' />
+        <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="../freestyle.css" title="The Grid" media="all" />
 	<title>4-step BDF</title>
 
         <script type="text/x-mathjax-config">
                      MathJax.Hub.Config({
-                       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+                       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+                       "HTML-CSS": { linebreaks: { automatic: true } },
+                       SVG:        { linebreaks: { automatic: true } }
                      });
         </script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -21,73 +24,57 @@
 <div id="layout">
 
 	<div id="header" class="row">
-		<div class="col c6">
+		<div class="col c10">
 			<h1>4-step BDF</h1>
-			<p class="slogan"></p>
+			<p class="slogan">Implicit 4-step method of order 4</p>
 		</div>
 		
 		<div class="col c2">
-		</div>
-
-		<div class="col c2">
-		</div>
-
-		<div class="col c2">
 			<ul class="menu">
-				<li><a href="index.html">Numipedia</a></li>
+				<li><a href="/numipedia/index.html">Back to index</a></li>
 			</ul>
 		</div>
 	</div>
 	
 	<div class="row">
 		<div class="col c4">
+                    <figure>
 			<img src="/numipedia/img/BDF4.png" alt="Absolute stability region" />
+                        <figcaption>Stable region in red.</figcaption>
+                    </figure>
 		</div>
 		
 		<div class="col c8 alignjustify">
 			<h2>Coefficients</h2>
-                        
+                        <div style="font-size: 100%">
+                            \begin{align} y_{n + 4} - \frac{48}{25} y_{n + 3} + \frac{36}{25} y_{n + 2} - \frac{16}{25} y_{n + 1} + \frac{3}{25} y_{n} = \frac{12}{25}h f(y_{n + 4})\end{align}</div>
 			<h2>Properties</h2>
 			<ul>
-                            <li>Order of accuracy: $4$</li>
-                            <li>Stage order: 4</li>
-                            <li>Radius of absolute monotonicity: $0$</li>
+                            <li><a href="http://numerics.kaust.edu.sa/nodepy/rkm.html#accuracy">
+                                Order of accuracy</a>: $4$
+                            </li>
+                            <li><a href="http://numerics.kaust.edu.sa/nodepy/rkm.html#nodepy.runge_kutta_method.RungeKuttaMethod.stage_order">
+                                Stage order</a>: 4
+                            </li>
+                            <li><a href="http://numerics.kaust.edu.sa/nodepy/rkm.html#nonlinear-stability">
+                                Radius of absolute monotonicity</a>: $0$
+                            </li>
+                            <li>$A(\alpha)$-stability angle: 146</li>
+                            <li>Zero-stable: True</li>
 
                         </ul>
-			<p class="alignright"><a href="#">Read more</a> &raquo;</p>
 		</div>
 	</div>
 	
 	<div class="row separator">
 	</div>
 	
-	<div class="row">
-		<div class="col c2">
-			<h3>Grid 1</h3>
-			<p>Lorem ipsum dolor sit amet...</p>
-		</div>
-
-		<div class="col c2">
-			<h3>Grid 2</h3>
-			<p>Consectetur adipisicing elit...</p>
-		</div>
-
-		<div class="col c2">
-			<h3>Grid 3</h3>
-			<p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
-		</div>
-		
-		<div class="col c6">
-			<h3>Grid 4</h3>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-		</div>
-	</div>
-
 
 	<div id="footer" class="row">
 		<div class="col c12">
-			<p>&copy; 2012 Your Name<br />
-			<a href="http://andreasviklund.com/templates/freestyle/">Template design</a> by <a href="http://andreasviklund.com/">Andreas Viklund</a></p>
+			<p>Numipedia is developed by David I. Ketcheson<br />
+                        <a href="http://github.com/ketch/numipedia">Browse the code on Github</a>
+                        </p>
 		</div>
 	</div>
 </div>

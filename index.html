@@ -8,7 +8,7 @@
 
 <body>
 
-<h1>Numerical integrators</h1>
+<h1>Index of numerical integrators</h1>
 
 <form class="controls" id="Filters">
   
@@ -54,6 +54,14 @@
     <div class="checkbox">
       <input type="checkbox" value=".pair"/>
       <label>Embedded pairs only</label>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <h4>Low-storage</h4>
+    <div class="checkbox">
+      <input type="checkbox" value=".low-storage"/>
+      <label>Low-storage only</label>
     </div>
   </fieldset>
 
@@ -104,8 +112,8 @@
     <a href="/numipedia/methods/SSPRK43.html"><div class="mix explicit runge-kutta ssp order-3 not-pair">
     <h3 class="name">SSPRK43</h3>
     </div></a>
-    <a href="/numipedia/methods/SSPRK22.html"><div class="mix explicit runge-kutta ssp order-2 not-pair">
-    <h3 class="name">SSPRK 22</h3>
+    <a href="/numipedia/methods/RK452RC.html"><div class="mix explicit runge-kutta low-storage order-4 pair">
+    <h3 class="name">RK4(3)5[2R+]C</h3>
     </div></a>
     <a href="/numipedia/methods/Prince-Dormand RK8(7).html"><div class="mix explicit runge-kutta order-8 pair">
     <h3 class="name">Prince-Dormand 8(7)</h3>
@@ -128,11 +136,17 @@
     <a href="/numipedia/methods/FE.html"><div class="mix explicit runge-kutta ssp order-1 not-pair">
     <h3 class="name">Forward Euler</h3>
     </div></a>
+    <a href="/numipedia/methods/Midpoint_extrapolation_86.html"><div class="mix explicit runge-kutta order-8 pair">
+    <h3 class="name">Midpoint extrapolation 8(6)</h3>
+    </div></a>
     <a href="/numipedia/methods/RKC201.html"><div class="mix explicit runge-kutta ssp order-1 not-pair">
     <h3 class="name">Runge-Kutta-Chebyshev (20,1)</h3>
     </div></a>
     <a href="/numipedia/methods/RKC202.html"><div class="mix explicit runge-kutta order-2 not-pair">
     <h3 class="name">Runge-Kutta-Chebyshev (20,2)</h3>
+    </div></a>
+    <a href="/numipedia/methods/LDDC46.html"><div class="mix explicit runge-kutta low-storage order-3 not-pair">
+    <h3 class="name">LDDC4()6[2R]</h3>
     </div></a>
     <a href="/numipedia/methods/SSPRK33.html"><div class="mix explicit runge-kutta ssp order-3 not-pair">
     <h3 class="name">SSPRK 33</h3>
@@ -140,20 +154,14 @@
     <a href="/numipedia/methods/RadauIIA2.html"><div class="mix implicit runge-kutta order-3 not-pair">
     <h3 class="name">Radau IIA2</h3>
     </div></a>
-    <a href="/numipedia/methods/Midpoint_extrapolation_32.html"><div class="mix explicit runge-kutta order-6 pair">
-    <h3 class="name">Midpoint extrapolation 6(4)</h3>
-    </div></a>
     <a href="/numipedia/methods/Picard43.html"><div class="mix explicit runge-kutta order-4 pair">
     <h3 class="name">Picard 4(3)</h3>
     </div></a>
-    <a href="/numipedia/methods/Midpoint_extrapolation_43.html"><div class="mix explicit runge-kutta order-8 pair">
-    <h3 class="name">Midpoint extrapolation 8(6)</h3>
+    <a href="/numipedia/methods/Picard54.html"><div class="mix explicit runge-kutta order-5 pair">
+    <h3 class="name">Picard 5(4)</h3>
     </div></a>
-    <a href="/numipedia/methods/NSSPRK32.html"><div class="mix explicit runge-kutta order-2 not-pair">
-    <h3 class="name">non-SSPRK 32</h3>
-    </div></a>
-    <a href="/numipedia/methods/NSSPRK33.html"><div class="mix explicit runge-kutta order-3 not-pair">
-    <h3 class="name">non-SSPRK 33</h3>
+    <a href="/numipedia/methods/BDF5.html"><div class="mix implicit multistep order-5 not-pair">
+    <h3 class="name">5-step BDF</h3>
     </div></a>
     <a href="/numipedia/methods/SSPRK(10,4).html"><div class="mix explicit runge-kutta ssp order-4 not-pair">
     <h3 class="name">SSPRK(10,4)</h3>
@@ -178,6 +186,9 @@
     </div></a>
     <a href="/numipedia/methods/Mid22.html"><div class="mix explicit runge-kutta order-2 not-pair">
     <h3 class="name">Midpoint Runge-Kutta</h3>
+    </div></a>
+    <a href="/numipedia/methods/DDAS47.html"><div class="mix explicit runge-kutta low-storage order-4 not-pair">
+    <h3 class="name">DDAS4()7[2R]</h3>
     </div></a>
     <a href="/numipedia/methods/SSP22star.html"><div class="mix explicit runge-kutta ssp order-2 not-pair">
     <h3 class="name">SSPRK22star</h3>
@@ -215,6 +226,9 @@
     <a href="/numipedia/methods/Euler_extrapolation_43.html"><div class="mix explicit runge-kutta order-4 pair">
     <h3 class="name">Euler extrapolation 4(3)</h3>
     </div></a>
+    <a href="/numipedia/methods/RK592RC.html"><div class="mix explicit runge-kutta low-storage order-5 pair">
+    <h3 class="name">RK5(4)9[2R+]C</h3>
+    </div></a>
     <a href="/numipedia/methods/AM3.html"><div class="mix implicit multistep order-4 not-pair">
     <h3 class="name">3-step Adams-Moulton</h3>
     </div></a>
@@ -227,11 +241,8 @@
     <a href="/numipedia/methods/AM4.html"><div class="mix implicit multistep order-5 not-pair">
     <h3 class="name">4-step Adams-Moulton</h3>
     </div></a>
-    <a href="/numipedia/methods/Picard54.html"><div class="mix explicit runge-kutta order-5 pair">
-    <h3 class="name">Picard 5(4)</h3>
-    </div></a>
-    <a href="/numipedia/methods/Midpoint_extrapolation_21.html"><div class="mix explicit runge-kutta order-4 pair">
-    <h3 class="name">Midpoint extrapolation 4(2)</h3>
+    <a href="/numipedia/methods/RK583RC.html"><div class="mix explicit runge-kutta low-storage order-5 pair">
+    <h3 class="name">RK5(4)8[3R+]C</h3>
     </div></a>
     <a href="/numipedia/methods/SSPRK95.html"><div class="mix explicit runge-kutta order-5 not-pair">
     <h3 class="name">SSP 95</h3>
@@ -251,8 +262,8 @@
     <a href="/numipedia/methods/BDF4.html"><div class="mix implicit multistep order-4 not-pair">
     <h3 class="name">4-step BDF</h3>
     </div></a>
-    <a href="/numipedia/methods/BDF5.html"><div class="mix implicit multistep order-5 not-pair">
-    <h3 class="name">5-step BDF</h3>
+    <a href="/numipedia/methods/Midpoint_extrapolation_42.html"><div class="mix explicit runge-kutta order-4 pair">
+    <h3 class="name">Midpoint extrapolation 4(2)</h3>
     </div></a>
     <a href="/numipedia/methods/SSPIRK33.html"><div class="mix implicit runge-kutta diagonally-implicit ssp order-3 not-pair">
     <h3 class="name">SSPIRK33</h3>
@@ -263,11 +274,17 @@
     <a href="/numipedia/methods/BDF3.html"><div class="mix implicit multistep order-3 not-pair">
     <h3 class="name">3-step BDF</h3>
     </div></a>
-    <a href="/numipedia/methods/GL2.html"><div class="mix implicit runge-kutta order-4 not-pair">
-    <h3 class="name">Gauss-Legendre RK24</h3>
+    <a href="/numipedia/methods/Midpoint_extrapolation_64.html"><div class="mix explicit runge-kutta order-6 pair">
+    <h3 class="name">Midpoint extrapolation 6(4)</h3>
+    </div></a>
+    <a href="/numipedia/methods/SSPRK22.html"><div class="mix explicit runge-kutta ssp order-2 not-pair">
+    <h3 class="name">SSPRK 22</h3>
     </div></a>
     <a href="/numipedia/methods/LobattoIIIC4.html"><div class="mix implicit runge-kutta order-6 not-pair">
     <h3 class="name">Lobatto IIIC4</h3>
+    </div></a>
+    <a href="/numipedia/methods/GL2.html"><div class="mix implicit runge-kutta order-4 not-pair">
+    <h3 class="name">Gauss-Legendre RK24</h3>
     </div></a>
     <a href="/numipedia/methods/LobattoIIIC2.html"><div class="mix implicit runge-kutta order-2 not-pair">
     <h3 class="name">Lobatto IIIC2</h3>

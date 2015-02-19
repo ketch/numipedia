@@ -1,3 +1,4 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
@@ -5,13 +6,15 @@
 	<meta name="description" content="Your description goes here" />
 	<meta name="keywords" content="your,keywords,goes,here" />
 	<meta name="author" content="David I. Ketcheson" />
-	<link href='http://fonts.googleapis.com/css?family=Economica' rel='stylesheet' type='text/css' />
+        <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="../freestyle.css" title="The Grid" media="all" />
 	<title>Bogacki-Shampine RK5(4)8</title>
 
         <script type="text/x-mathjax-config">
                      MathJax.Hub.Config({
-                       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+                       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+                       "HTML-CSS": { linebreaks: { automatic: true } },
+                       SVG:        { linebreaks: { automatic: true } }
                      });
         </script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -21,32 +24,30 @@
 <div id="layout">
 
 	<div id="header" class="row">
-		<div class="col c6">
+		<div class="col c10">
 			<h1>Bogacki-Shampine RK5(4)8</h1>
 			<p class="slogan">Explicit embedded Runge-Kutta pair</p>
 		</div>
 		
 		<div class="col c2">
-		</div>
-
-		<div class="col c2">
-		</div>
-
-		<div class="col c2">
 			<ul class="menu">
-				<li><a href="index.html">Numipedia</a></li>
+				<li><a href="/numipedia/index.html">Back to index</a></li>
 			</ul>
 		</div>
 	</div>
 	
 	<div class="row">
 		<div class="col c4">
+                    <figure>
 			<img src="/numipedia/img/BS5.png" alt="Absolute stability region" />
+                        <figcaption>Stable region in red.</figcaption>
+                    </figure>
 		</div>
 		
 		<div class="col c8 alignjustify">
 			<h2>Coefficients</h2>
-                        \begin{align}
+                        <div style="font-size: 75%">
+                            \begin{align}
   \begin{array}{c|cccccccc}
  &  &  &  &  &  &  &  & \\
 \frac{1}{6} & \frac{1}{6} &  &  &  &  &  &  & \\
@@ -59,49 +60,39 @@
 \hline
  & \frac{587}{8064} &  & \frac{4440339}{15491840} & \frac{24353}{124800} & \frac{387}{44800} & \frac{2152}{5985} & \frac{7267}{94080} & \\
  & \frac{2479}{34992} &  & \frac{123}{416} & \frac{612941}{3411720} & \frac{43}{1440} & \frac{2272}{6561} & \frac{79937}{1113912} & \frac{3293}{556956}
-\end{array}\end{align}
+\end{array}\end{align}</div>
 			<h2>Properties</h2>
 			<ul>
-                            <li>Order of accuracy: $5$</li>
-                            <li>Stage order: $1$</li>
-                            <li>Stability function: $$1 + z + \frac{z^{2}}{2} + \frac{z^{3}}{6} + \frac{z^{4}}{24} + \frac{z^{5}}{120} + \frac{17291 z^{6}}{12418560} + \frac{269 z^{7}}{1379840}$$</li>
-                            <li>Radius of absolute monotonicity: $0$</li>
+                            <li><a href="http://numerics.kaust.edu.sa/nodepy/rkm.html#accuracy">
+                                Order of accuracy</a>: $5$
+                            </li>
+                            <li><a href="http://numerics.kaust.edu.sa/nodepy/rkm.html#nodepy.runge_kutta_method.RungeKuttaMethod.stage_order">
+                                Stage order</a>: $1$
+                            </li>
+                            <li><a href="http://numerics.kaust.edu.sa/nodepy/rkm.html#classical-linear-stability">
+                                Stability function</a>: $$1 + z + \frac{z^{2}}{2} + \frac{z^{3}}{6} + \frac{z^{4}}{24} + \frac{z^{5}}{120} + \frac{17291 z^{6}}{12418560} + \frac{269 z^{7}}{1379840}$$
+                            </li>
+                            <li><a href="http://numerics.kaust.edu.sa/nodepy/rkm.html#nonlinear-stability">
+                                Radius of absolute monotonicity</a>: $0$
+                            </li>
+                            <li>Principal error norm: 2.21693277847e-05</li>
+                            <li>Imaginary stability interval: 1.66431688822</li>
+                            <li>Real stability interval: 3.98792719873</li>
+                            <li>Zero-stable: True</li>
 
                         </ul>
-			<p class="alignright"><a href="#">Read more</a> &raquo;</p>
 		</div>
 	</div>
 	
 	<div class="row separator">
 	</div>
 	
-	<div class="row">
-		<div class="col c2">
-			<h3>Grid 1</h3>
-			<p>Lorem ipsum dolor sit amet...</p>
-		</div>
-
-		<div class="col c2">
-			<h3>Grid 2</h3>
-			<p>Consectetur adipisicing elit...</p>
-		</div>
-
-		<div class="col c2">
-			<h3>Grid 3</h3>
-			<p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
-		</div>
-		
-		<div class="col c6">
-			<h3>Grid 4</h3>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-		</div>
-	</div>
-
 
 	<div id="footer" class="row">
 		<div class="col c12">
-			<p>&copy; 2012 Your Name<br />
-			<a href="http://andreasviklund.com/templates/freestyle/">Template design</a> by <a href="http://andreasviklund.com/">Andreas Viklund</a></p>
+			<p>Numipedia is developed by David I. Ketcheson<br />
+                        <a href="http://github.com/ketch/numipedia">Browse the code on Github</a>
+                        </p>
 		</div>
 	</div>
 </div>
