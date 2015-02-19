@@ -28,6 +28,7 @@ def write_numipedia(rewrite_method_pages=True):
         - Add more methods
     """
     methods = rk.loadRKM('All')
+
     for k in range(2,6):
         method = lm.Adams_Bashforth(k)
         methods[method.name] = method
@@ -35,6 +36,9 @@ def write_numipedia(rewrite_method_pages=True):
         methods[method.name] = method
         method = lm.backward_difference_formula(k)
         methods[method.name] = method
+
+    for key in ['NSSP32','NSSP33']:
+        del methods[key]
 
     method = rk.SSPRK2(4)
     methods[method.name] = method
@@ -61,9 +65,9 @@ def write_numipedia(rewrite_method_pages=True):
     method = rk.DC_pair(4)
     methods[method.name] = method
 
-    method = rk.extrap_pair(4)
+    method = rk.extrap_pair(4,base='euler')
     methods[method.name] = method
-    method = rk.extrap_pair(6)
+    method = rk.extrap_pair(6,base='euler')
     methods[method.name] = method
 
     method = rk.extrap_pair(2,base='midpoint')
@@ -139,7 +143,7 @@ def method_page(method,template_file='method_template.html'):
                           butcher=method.latex(),
                           stabfun=stabfun,
                           amrad=tex(method.absolute_monotonicity_radius()),
-                          order = tex(method.__num__().order()),
+                          order = tex(method.p),#__num__().order()),
                           stage_order = stage_order
                           )
 

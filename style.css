@@ -155,6 +155,19 @@ font-size: 18px;
   font-family: candara;
 }
 
+.container .implicit{
+  border-radius: 50px
+}
+
+.container .multistep{
+  background: #7C5158;
+}
+
+.container .pair{
+  border-color: #111111;
+  border: 3px solid black;
+}
+
 /**
  * Fail message styles
  */
